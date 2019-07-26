@@ -1,4 +1,4 @@
-package weka.api;
+package weka.api.attempts;
 import weka.core.Instances;
 import weka.classifiers.functions.SMO;
 import weka.core.converters.ConverterUtils.DataSource;

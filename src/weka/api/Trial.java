@@ -57,17 +57,11 @@ public static void main(String[] args) throws Exception {
 
 
         //Save model 
-        mg.saveModel(ann, MODElPATH);
-        long endTime   = System.nanoTime();
-        double totalTime = (endTime - startTime)/1_000_000_000.0;
-        System.out.println(totalTime);
-        
-//        System.out.print(unlabeled);
-////       
+
+              
         for (int i = 0; i < unlabeled.numInstances(); i++) {
         	   double clsLabel =ann.classifyInstance(unlabeled.instance(i));
         	   unlabeled.instance(i).setClassValue(clsLabel);
-//        	   System.out.println(unlabeled);
         	 }
         	 // save labeled data
         BufferedWriter writer = new BufferedWriter(new FileWriter(UNLABELED));
@@ -75,21 +69,13 @@ public static void main(String[] args) throws Exception {
         writer.newLine();
         writer.flush();
         writer.close();
-//        System.out.println(unlabeled);
         
-//        List<Object> person = getDetails(); 
-//        System.out.println(person); 
+        mg.saveModel(ann, MODElPATH);
+        long endTime   = System.nanoTime();
+        double totalTime = (endTime - startTime)/1_000_000_000.0;
+        System.out.println(totalTime);
 
         //classifiy a single instance 
-        
-        
-        
-//        System.out.printf("%d, %d, %d, %d", onset.length, sal.length, onsetdiff.length, pitch.length);
-//        for (int i = 0; i < vot.length; i++) {
-//			String classname =cls.classifiy(Filter.useFilter(cls.createInstance(vot[i],vot_diff[i],sal[i],pitch[i], prob[i],0), filter), MODElPATH);
-//			System.out.println("\n The name for the instance:  " +classname);
-//
-//        }
 //        ModelClassifier cls = new ModelClassifier();
 //        String classname =cls.classifiy(Filter.useFilter(cls.createInstance(0.28850792889313903,0.0,10.593929290771484,0.90922475,0), filter), MODElPATH);
 //        System.out.println("\n The name for the instance:  " +classname);

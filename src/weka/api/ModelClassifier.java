@@ -51,16 +51,16 @@ public class ModelClassifier {
 		attributes.add(onset_diff);
 //		attributes.add(pitch);
 		attributes.add(prob);
-		attributes.add(beat);
+//		attributes.add(beat);
 		attributes.add(new Attribute("name", classval));
 		
 		dataRaw = new Instances("TestInstances", attributes, 0);
 		dataRaw.setClassIndex(dataRaw.numAttributes()-1);
 	}
 	
-	public Instances createInstance(double onset, double onset_diff, double sal, double beat, double prob, double result) {
+	public Instances createInstance(double onset, double onset_diff, double sal, double prob, double result) {
 		dataRaw.clear();
-		double[] instanceValue1 = new double[] {onset, onset_diff, sal, beat, prob, 0};
+		double[] instanceValue1 = new double[] {onset, onset_diff, sal, prob, 0};
 		dataRaw.add(new DenseInstance(1.0, instanceValue1));
 		return dataRaw;
 	}

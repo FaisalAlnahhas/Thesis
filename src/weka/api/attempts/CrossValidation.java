@@ -1,9 +1,10 @@
-package weka.api;
+package weka.api.attempts;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Random;
 
+import weka.api.ModelGenerator;
 import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.evaluation.Evaluation;
@@ -14,7 +15,7 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Normalize;
 
 public class CrossValidation {
-	public static final String DATASETPATH = "/Users/faisal/Desktop/arff-files/training0530.arff";
+	public static final String DATASETPATH = "/Users/faisal/Desktop/arff-files/training.arff";
 	public static final String TESTPATH = "/Users/faisal/Desktop/arff-files/test_file_faisal.arff";//
     public static final String MODElPATH = "/Users/faisal/Documents/weka2-api/model.bin";
 
@@ -48,8 +49,12 @@ public static void main(String[] args) throws Exception {
 
         // build classifier with train dataset             
         MultilayerPerceptron ann = (MultilayerPerceptron) mg.buildClassifier(traindataset);
-        Classifier c = new NaiveBayes();
-        eval.crossValidateModel(c, dataset, 10, new Random(1));
+		ann.setLearningRate(0.3); //0.3 //9 best results
+		ann.setHiddenLayers("9");
+		ann.setMomentum(0.2);
+		ann.setTrainingTime(1000);
+		ann.buildClassifier(traindataset);
+        eval.crossValidateModel(ann, dataset, 10, new Random(1));
         System.out.println("Estimated Accuracy: "+Double.toString(eval.pctCorrect()));
         
 //        Classifier c = new NaiveBayes();

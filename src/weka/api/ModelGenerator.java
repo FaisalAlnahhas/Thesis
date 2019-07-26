@@ -28,7 +28,12 @@ public class ModelGenerator {
 		MultilayerPerceptron m = new MultilayerPerceptron();
 		
 		try {
+			m.setLearningRate(0.3); //0.3 //9 best results
+			m.setHiddenLayers("9");
+			m.setMomentum(0.2);
+			m.setTrainingTime(400); //epochs
 			m.buildClassifier(traindataset);
+
 		} catch (Exception ex) {
 			 Logger.getLogger(ModelGenerator.class.getName()).log(Level.SEVERE, null, ex);
 		}
