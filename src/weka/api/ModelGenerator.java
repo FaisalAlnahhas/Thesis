@@ -28,10 +28,10 @@ public class ModelGenerator {
 		MultilayerPerceptron m = new MultilayerPerceptron();
 		
 		try {
-			m.setLearningRate(0.3); //0.3 //9 best results
+			m.setLearningRate(0.2); //0.3 //9 best results
 			m.setHiddenLayers("9");
-			m.setMomentum(0.2);
-			m.setTrainingTime(400); //epochs
+			m.setMomentum(0.6);
+			m.setTrainingTime(300); //epochs
 			m.buildClassifier(traindataset);
 
 		} catch (Exception ex) {
@@ -46,6 +46,10 @@ public class ModelGenerator {
             // Evaluate classifier with test dataset
             eval = new Evaluation(traindataset);
             eval.evaluateModel(model, testdataset);
+            double acc = eval.pctCorrect();
+            double wrong = eval.pctIncorrect();
+            double unclass = eval.pctUnclassified();
+            System.out.print("acc: " + acc + "wrong: " + wrong + "unclassified: " + unclass + "\n");
         } catch (Exception ex) {
             Logger.getLogger(ModelGenerator.class.getName()).log(Level.SEVERE, null, ex);
         }

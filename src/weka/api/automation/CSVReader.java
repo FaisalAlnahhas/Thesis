@@ -4,6 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class CSVReader {
 
@@ -22,12 +28,9 @@ public class CSVReader {
 
                 // use comma as separator
                 String[] data = line.split(cvsSplitBy);
-                if (!data[1].equals("-1.0")) {// && ( Double.parseDouble(data[3])>85 || Double.parseDouble(data[3])<225)) {
-                	System.out.print( data[2] + "\n");
-                }
+                System.out.print( data[0] + "," + data[1] + "," + data[2] + "," + data[4] + "," + data[5] + "\n");
                 
-
-//                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+                
 
             }
 

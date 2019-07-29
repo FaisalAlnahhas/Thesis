@@ -66,7 +66,7 @@ public class ModelClassifier {
 	}
 	
 	public String classifiy(Instances insts, String path) {
-      String result = "Not classified!!";
+      String result = "Unkown";
       Classifier cls = null;
       try {
           cls = (MultilayerPerceptron) SerializationHelper.read(path);
