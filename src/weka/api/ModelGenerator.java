@@ -28,7 +28,7 @@ public class ModelGenerator {
 		MultilayerPerceptron m = new MultilayerPerceptron();
 		
 		try {
-			m.setLearningRate(0.2); //0.3 //9 best results
+			m.setLearningRate(0.2); //0.2, 9, 300, 0.6, best results
 			m.setHiddenLayers("9");
 			m.setMomentum(0.6);
 			m.setTrainingTime(300); //epochs

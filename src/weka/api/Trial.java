@@ -83,6 +83,7 @@ public static void main(String[] args) throws Exception {
         int array_legnth =unlabeled.numInstances();
 //        System.out.print(array_legnth + "\n");
         String[] names = new String[array_legnth];
+        String[] names_copy = new String[array_legnth];
         int i = 0;
         
         try {
@@ -94,6 +95,7 @@ public static void main(String[] args) throws Exception {
             	String[] data = line.split(cvsSplitBy);
                 String classname =cls.classifiy(Filter.useFilter(cls.createInstance(Double.parseDouble(data[0]), Double.parseDouble(data[1]), Double.parseDouble(data[2]), Double.parseDouble(data[3]),0), filter), MODElPATH);
                 names[i] = classname;
+                names_copy[i] = classname;
                 i++;
                 
             }
@@ -111,7 +113,6 @@ public static void main(String[] args) throws Exception {
                 }
             }
         }
-        
         List<String> list = Arrays.asList(names);
         int max = 0, curr = 0;
         String current = null;
@@ -124,7 +125,13 @@ public static void main(String[] args) throws Exception {
              current = key;
             }
         }
-        System.out.print("the speaker is: " + current + "\n");
+        
+        if (current != null && Arrays.asList(names).contains(current)) {
+        	System.out.print("Authenticated!\nWelcome: "+ current + "\n");
+        } else {
+        	System.out.print("Failed authentication \n");
+        	System.exit(0);
+        }
         
         BufferedWriter writer = new BufferedWriter(new FileWriter(UNLABELED));
         writer.write(current.toString());
