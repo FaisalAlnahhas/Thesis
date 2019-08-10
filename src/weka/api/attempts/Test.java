@@ -5,6 +5,7 @@ import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Normalize;
 import weka.api.*;
+import weka.api.algorithm.ModelGenerator;
 
 public class Test {
 	public static final String DATASETPATH = "/Users/faisal/Desktop/arff-files/test3-copy.arff";

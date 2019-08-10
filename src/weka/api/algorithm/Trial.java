@@ -1,4 +1,4 @@
-package weka.api;
+package weka.api.algorithm;
 import weka.classifiers.functions.MultilayerPerceptron;
 import weka.core.Debug;
 import weka.core.Instance;

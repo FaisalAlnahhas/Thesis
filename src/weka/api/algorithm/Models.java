@@ -1,4 +1,4 @@
-package weka.api;
+package weka.api.algorithm;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
