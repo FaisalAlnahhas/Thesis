@@ -127,7 +127,7 @@ public static void main(String[] args) throws Exception {
         }
         
         if (current != null && Arrays.asList(names).contains(current)) {
-        	System.out.print("Authenticated!\nWelcome: "+ current + "\n");
+        	System.out.print("Authenticated!\n");
         } else {
         	System.out.print("Failed authentication \n");
         	System.exit(0);
@@ -148,7 +148,7 @@ public static void main(String[] args) throws Exception {
 
 
 
-        
+        //TODO: add command line to main
 //        ModelClassifier cls = new ModelClassifier();
 //        String classname =cls.classifiy(Filter.useFilter(cls.createInstance(1.6, 0.2, 0), filter), MODElPATH);
 //        System.out.println("\n The class name for the instance with petallength = 1.6 and petalwidth =0.2 is  " +classname);
